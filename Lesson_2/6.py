@@ -5,3 +5,23 @@
 число, чем то, что загадано. Если за 10 попыток число не отгадано,
 то вывести загаданное число.
 """
+
+from random import randint
+
+n = randint(0, 100)
+print('Попробуйте отгадать случайное целое число 0..100 за 10 попыток!')
+
+attempt = 0
+guess_number = int(input('Введите число: '))
+while attempt < 10:
+    if guess_number > n:
+        guess_number = int(input('Не угадали. Загаданное число меньше. Попробуйте еще раз: '))
+    elif guess_number < n:
+        guess_number = int(input('Не угадали. Загаданное число больше. Попробуйте еще раз: '))
+    else:
+        print(f'Поздравляем! Вы угадали число "{n}" с {attempt + 1} попытки!')
+        break
+    attempt += 1
+    if attempt == 9:
+        print('Упс.. Вы не угадали число: ', n)
+        break
